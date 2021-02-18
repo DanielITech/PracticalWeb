@@ -8,10 +8,15 @@ class Author(models.Model):
     profile_picture = models.CharField(max_length=256)
     languages = models.CharField(max_length=256)
 
+    def __str__(self):
+        return self.first_name
+
 
 class Subscription(models.Model):
     user_id = models.IntegerField()
 
+    def __str__(self):
+        return str(self.user_id)
 
 class User(models.Model):
     first_name = models.CharField(max_length=55)
@@ -23,6 +28,8 @@ class User(models.Model):
     subscription = models.ForeignKey(Subscription, on_delete=models.CASCADE)
     prev_suscriber = models.BooleanField()
 
+    def __str__(self):
+        return self.first_name
 
 class Fan(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -36,17 +43,27 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.CharField(max_length=1024)
 
+    def __str__(self):
+        return self.content[:25]
 
 class Topic(models.Model):
     name = models.CharField(max_length=128)
 
+    def __str__(self):
+        return self.name
 
 class Course(models.Model):
     title = models.CharField(max_length=128)
 
+    def __str__(self):
+        return self.title
+
 
 class ProgrammingLanguage(models.Model):
     name = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.name
 
 
 class Tutorial(models.Model):
@@ -62,3 +79,6 @@ class Tutorial(models.Model):
     parent_course = models.ForeignKey(Course,on_delete=models.CASCADE,  blank=True)
     parent_topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     prog_lang = models.ForeignKey(ProgrammingLanguage, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title[:28]
