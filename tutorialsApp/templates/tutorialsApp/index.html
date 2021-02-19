@@ -1,9 +1,5 @@
-<!Doctype html>
-<html>
-    <head></head>
-
-    <body>
+{% extends 'tutorialsApp/base.html' %}
+    {% block content %}
         <h1> Hello World </h1>
-            <h2>{{ tut.title }}</h2>
-    </body>
-</html>
+        <h2>{{ tut.title }}</h2>
+    {% endblock %}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <link href="{% static 'tutorialsApp/css/main.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <header>Hello Header</header>
+        {% block header_image %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+        <footer></footer>
+    </body>
+</html>
