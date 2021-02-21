@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html>
+
     <head>
+
+        <meta charset="Utf-8" />
+        <meta name="viewport" content="width=devide-width, initial-scale=1" />
+
         {% load static %}
         <link href="{% static 'tutorialsApp/css/main.css' %}" rel="stylesheet" />
         <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+
     </head>
+
     <body>
+
         <header>Hello Header</header>
-        {% block header_image %}
-        {% endblock %}
-        {% block content %}
-        {% endblock %}
+        <main>
+            <div>{% block tut_title %} {% endblock %}</div>
+            <div>{% block header_image %} {% endblock %}</div>
+            <div>{% block content %} {% endblock %}</div>
+        </main>
         <footer></footer>
+        {% load static %}
+        <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+
     </body>
+
 </html>
